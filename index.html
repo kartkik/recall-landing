@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recall: MacBook Notch App, Call Live Transcription, Clipboard, Music, Shelf, Weather & Widgets</title>
+  <meta name="description"
+    content="Download Recall for macOS. Real-time call live transcription without bots, smart clipboard manager, live music & video activities with lyrics, temp shelf, live atmospheric weather, and floating desktop widgets for Mac. Apple Silicon and Intel. Free trial, $16 lifetime license." />
+  <meta name="keywords"
+    content="recall, call live transcription, voicenotes mac, dynamic island for mac, macos clipboard manager, mac temp shelf, mac weather notch, mac desktop widgets, apple silicon productivity" />
+  <meta name="author" content="Recall Software" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://recall.app/" />
+  <meta name="theme-color" content="#0a1f6e" />
+
+  <!-- Preload Critical Above-The-Fold Assets -->
+  <link rel="preload" as="image" href="./macbook-pro-mockup-v2.webp" type="image/webp" />
+  <link rel="preload" as="video" href="./assets/notch-expanded-demo.mp4" type="video/mp4" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://recall.app/" />
+  <meta property="og:title" content="Recall: MacBook Notch App, Call Live Transcription & Dynamic Island" />
+  <meta property="og:description"
+    content="One notch. Everything you need. Call live transcription without bots, smart clipboard manager, live music & video activities with synced lyrics, temp shelf, live weather, and floating desktop widgets for macOS." />
+  <meta property="og:image" content="https://recall.app/assets/logo.png" />
+  <meta property="og:site_name" content="Recall for Mac" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://recall.app/" />
+  <meta name="twitter:title" content="Recall: MacBook Notch App, Call Live Transcription & Dynamic Island" />
+  <meta name="twitter:description"
+    content="One notch. Everything you need. Dynamic Island for Mac with call live transcription, smart clipboard, live music with synced lyrics, temp shelf, weather, and desktop widgets." />
+  <meta name="twitter:image" content="https://recall.app/assets/logo.png" />
+
+  <!-- Favicon / Apple App Icon -->
+  <link rel="icon" type="image/png" href="./assets/logo.png" />
+  <link rel="apple-touch-icon" href="./assets/logo.png" />
+
+  <!-- Google Fonts & Material Symbols (Preconnected & Optimized) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Animation & Visual Engines: GSAP, ScrollTrigger (Deferred for Fast FCP) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Schema.org JSON-LD Structured Data for Rich Search Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Recall",
+    "url": "https://recall.app",
+    "operatingSystem": "macOS 14.0 Sonoma or later",
+    "applicationCategory": "ProductivityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "16.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "1280",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "description": "Native macOS Notch and Dynamic Island utility featuring bot-free live meeting transcription, smart clipboard manager with OCR, interactive music HUD with lyrics, temp drag shelf, live weather, and floating desktop widgets.",
+    "screenshot": "https://recall.app/assets/demo-voicenotes.gif",
+    "softwareVersion": "2.4.0",
+    "author": {
+      "@type": "Organization",
+      "name": "Recall Software"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="site-body">
+
+  <!-- ISLAND NAVBAR (NOTCHSPACE STYLE — CENTERED PILL FROM TOP) -->
+  <header class="top-nav-wrapper">
+    <nav class="island-nav" id="island-nav">
+      <!-- Concave corner wings -->
+      <span class="island-curve island-curve--left" aria-hidden="true"></span>
+      <span class="island-curve island-curve--right" aria-hidden="true"></span>
+
+      <!-- Main Notch Bar Row -->
+      <div class="island-bar-row">
+        <!-- Logo -->
+        <a href="#" class="island-brand" id="nav-brand">
+          <img src="./assets/logo.png" alt="Recall App Icon" class="island-logo" />
+          <span class="island-brand-name">Recall</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="island-links">
+          <a href="#feature-voicenotes-live" class="island-link">Demos</a>
+          <a href="#features" class="island-link active">Features</a>
+          <a href="#pricing" class="island-link">Pricing</a>
+          <a href="#faq" class="island-link">FAQ</a>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="#" class="island-cta open-download-modal-btn" id="nav-download-btn">
+          Download · $16
+        </a>
+
+        <!-- Mobile Menubar Toggle Button inside Notch -->
+        <button type="button" class="island-hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span class="hamburger-icon-wrap">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile Expanded Notch Menubar (Inside the Notch Pill) -->
+      <div class="island-mobile-menu" id="island-mobile-menu">
+        <div class="island-mobile-menu-inner">
+          <div class="island-mobile-links">
+            <a href="#feature-voicenotes-live" class="island-mobile-link">
+              <span class="material-symbols-outlined text-base">smart_display</span>
+              <span>Demos</span>
+            </a>
+            <a href="#features" class="island-mobile-link">
+              <span class="material-symbols-outlined text-base">widgets</span>
+              <span>Features</span>
+            </a>
+            <a href="#pricing" class="island-mobile-link">
+              <span class="material-symbols-outlined text-base">sell</span>
+              <span>Pricing</span>
+            </a>
+            <a href="#faq" class="island-mobile-link">
+              <span class="material-symbols-outlined text-base">help</span>
+              <span>FAQ</span>
+            </a>
+          </div>
+          <div class="island-mobile-cta-wrap">
+            <a href="#" class="island-mobile-download-btn open-download-modal-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width: 17px; height: 17px;">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+              </svg>
+              <span>Download for Mac · $16</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <!-- Ambient Gradient & Animated Star Field -->
+      <div class="hero-gradient-bg" aria-hidden="true"></div>
+      <div class="hero-radial-glow" aria-hidden="true"></div>
+      <div class="starfield" id="starfield" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <!-- Pill Badge -->
+        <div class="hero-badge animate-fade-in">
+          <span class="hero-badge-rec-dot"></span>
+          <span>Dynamic Island · Native macOS Superpowers</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-headline animate-fade-in delay-1">
+          <span class="hero-title-sans">One notch.</span>
+          <span class="hero-title-serif">Everything you transcribe, stage & control.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle animate-fade-in delay-2">
+          Call live transcription (Zoom, Meet, Teams, mic), smart clipboard history, live music & video activities with
+          synced lyrics, temp shelf, live atmospheric weather, and floating desktop widgets right in your Mac's notch.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group animate-fade-in delay-3">
+          <button class="btn-primary-cta open-download-modal-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="apple-icon">
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+            <span>Download for Mac · <del class="old-price">$19.99</del> <strong class="sale-price">$16</strong></span>
+          </button>
+
+          <a href="#features" class="btn-secondary-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="play-icon">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Explore Core Superpowers</span>
+          </a>
+        </div>
+
+        <!-- Trust Meta Badges -->
+        <div class="hero-trust-row animate-fade-in delay-4">
+          <span class="trust-item"><span class="dot-green"></span> 100% On-Device Local Privacy</span>
+          <span class="separator">·</span>
+          <span class="trust-item">Zero Meeting Bots Needed</span>
+          <span class="separator">·</span>
+          <span class="trust-item">Apple Silicon & Intel</span>
+        </div>
+      </div>
+
+      <!-- HERO MACBOOK HARDWARE MOCKUP & LIVE SHOWCASE -->
+      <div class="hero-macbook-container" id="hero-macbook-showcase">
+
+        <div class="macbook-frame" id="blip-cinema-frame">
+          <!-- Real MacBook Mockup — image as background for precise overlay -->
+          <div class="macbook-real-wrap">
+            <!-- Screen content: GIF overlaid inside the display area -->
+            <div class="macbook-screen-overlay">
+              <!-- Always Expanded Notch Housing the Live Screen Recording Video -->
+              <div class="macbook-expanded-notch" id="macbook-expanded-notch">
+                <video
+                  id="cinema-notch-video"
+                  class="notch-expanded-video"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  preload="auto"
+                >
+                  <source src="./assets/notch-expanded-demo.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Clean Hero Specs & Deep-Dive Jump Strip -->
+        <div class="hero-specs-pill-bar hide-mobile">
+          <div class="hero-spec-pill"><span class="spec-dot green"></span> Native SwiftUI · 120 FPS</div>
+          <div class="hero-spec-pill"><span class="spec-dot purple"></span> 100% On-Device AI</div>
+          <div class="hero-spec-pill"><span class="spec-dot blue"></span> Zero Cloud Audio Egress</div>
+          <a href="#feature-voicenotes-live" class="hero-deepdive-jump-btn">
+            <span>Explore Feature Demos</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Gradient Bleed -->
+      <div class="hero-bottom-bleed" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: ACTIONS SLOT REEL & 3-COLUMN PARALLAX APP ECOSYSTEM MATRIX
+         ========================================================================== -->
+    <section id="feature-apps-showcase" class="apps-showcase-flow-section">
+
+      <!-- Stage 1: Dynamic Slot Machine Drum Reel -->
+      <div class="slot-reel-header-wrap">
+        <div class="slot-reel-container">
+          <!-- "Designed to seamlessly" Phrase -->
+          <div class="slot-phrase-wrap">
+            <h3 class="slot-prefix-title">
+              Designed to seamlessly
+            </h3>
+          </div>
+
+          <!-- 240px Viewport with 80px Slot Lines -->
+          <div class="slot-reel-viewport">
+            <div class="slot-reel-strip" id="slot-reel-strip">
+              <!-- Dynamically generated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2: 3-Column Parallax App Ecosystem Columns -->
+      <div class="apps-matrix-showcase-wrap">
+        <div class="apps-matrix-header">
+          <div class="apps-badge-pill">
+            <span class="material-symbols-outlined text-sm">hub</span> Universal macOS Ecosystem
+          </div>
+          <h4 class="apps-matrix-title">Supports all of your Apps.</h4>
+          <p class="apps-matrix-desc">Native integration across developer tools, creative suites, meeting platforms, and
+            daily workflows.</p>
+        </div>
+
+        <!-- 3 Vertical Continuous Marquee App Columns (Pure GPU-accelerated CSS) -->
+        <div class="app-columns-wrapper">
+          <div class="app-columns-grid">
+            <div class="app-column col-up" id="app-col-1"></div>
+            <div class="app-column col-down" id="app-col-2"></div>
+            <div class="app-column col-up" id="app-col-3"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         ORBITAL NOTCH ECOSYSTEM & SPLIT EXPANDED SHOWCASE (WHITE THEME)
+         ========================================================================== -->
+    <section class="notch-orbit-ecosystem-section" id="notch-orbit-ecosystem">
+      <div class="container orbit-showcase-container">
+
+        <!-- Card 1: Everything orbits your notch -->
+        <div class="orbit-showcase-card">
+          <!-- Notch Top Anchor & Concentric Orbit Paths -->
+          <div class="orbit-visual-stage">
+            <div class="orbit-notch-anchor">
+              <span class="notch-camera-dot"></span>
+            </div>
+
+            <svg class="orbit-rings-svg" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <!-- Concentric dashed orbital tracks -->
+              <ellipse cx="380" cy="0" rx="150" ry="95" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 6" />
+              <ellipse cx="380" cy="0" rx="260" ry="165" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 7" />
+              <ellipse cx="380" cy="0" rx="360" ry="230" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5 8" />
+            </svg>
+
+            <!-- Floating 9 Badges along Orbits -->
+            <div class="orbit-badge-layer">
+              <!-- Outer & Middle Arc -->
+              <div class="orbit-badge badge-dollar" style="--orbit-x: 22%; --orbit-y: 18%; animation-delay: 0s;" title="Lifetime License">
+                <span class="badge-icon">$</span>
+              </div>
+              <div class="orbit-badge badge-mic" style="--orbit-x: 32%; --orbit-y: 33%; animation-delay: 0.3s;" title="Live Audio Transcription">
+                <span class="badge-icon">🎙️</span>
+              </div>
+              <div class="orbit-badge badge-music" style="--orbit-x: 43%; --orbit-y: 37%; animation-delay: 0.6s;" title="Synced Music & Lyrics">
+                <span class="badge-icon">🎵</span>
+              </div>
+              <div class="orbit-badge badge-clipboard" style="--orbit-x: 58%; --orbit-y: 36%; animation-delay: 0.9s;" title="Unlimited Clipboard & OCR">
+                <span class="badge-icon">📋</span>
+              </div>
+              <div class="orbit-badge badge-chip" style="--orbit-x: 69%; --orbit-y: 34%; animation-delay: 1.2s;" title="Apple Silicon Neural Engine">
+                <span class="badge-icon">⚡</span>
+              </div>
+              <div class="orbit-badge badge-cloud" style="--orbit-x: 78%; --orbit-y: 20%; animation-delay: 1.5s;" title="Live Weather HUD">
+                <span class="badge-icon">☁️</span>
+              </div>
+
+              <!-- Inner Arc -->
+              <div class="orbit-badge badge-check" style="--orbit-x: 38%; --orbit-y: 67%; animation-delay: 0.4s;" title="Instant Meeting Action Items">
+                <span class="badge-icon">✓</span>
+              </div>
+              <div class="orbit-badge badge-clock" style="--orbit-x: 50%; --orbit-y: 58%; animation-delay: 0.8s;" title="Pomodoro & Focus Timers">
+                <span class="badge-icon">⏱️</span>
+              </div>
+              <div class="orbit-badge badge-camera" style="--orbit-x: 63%; --orbit-y: 67%; animation-delay: 1.1s;" title="Smart OCR & Screen Snipping">
+                <span class="badge-icon">📷</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Text -->
+          <div class="orbit-card-text">
+            <h3 class="orbit-heading">Everything orbits your notch.</h3>
+            <p class="orbit-subtext">Nine tools, zero extra windows.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Split hero with the live panel on the right -->
+        <div class="split-notch-card">
+          <div class="split-notch-grid">
+            <!-- Left Info Column -->
+            <div class="split-notch-left">
+              <h3 class="split-notch-title">Your Mac’s notch, expanded.</h3>
+              <p class="split-notch-desc">Hover the notch. Everything you need drops down.</p>
+              
+              <div class="split-actions-row">
+                <button class="btn-split-download open-download-modal-btn">
+                  Download for macOS
+                </button>
+                <a href="#feature-voicenotes-live" class="btn-split-features">
+                  See features
+                </a>
+              </div>
+
+              <div class="split-down-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Right Live Activity HUD Column -->
+            <div class="split-notch-right">
+              <div class="notch-live-hud-panel">
+                <div class="hud-top-glance">
+                  <!-- Apple-style concentric activity rings -->
+                  <div class="hud-activity-rings-wrap">
+                    <svg class="activity-rings-svg" viewBox="0 0 100 100">
+                      <!-- Outer Cyan Ring (CPU) -->
+                      <circle cx="50" cy="50" r="41" stroke="rgba(56, 189, 248, 0.2)" stroke-width="6" fill="none" />
+                      <circle cx="50" cy="50" r="41" stroke="#38bdf8" stroke-width="6" fill="none"
+                              stroke-linecap="round" stroke-dasharray="257.6" stroke-dashoffset="185"
+                              transform="rotate(-90 50 50)" class="ring-pulse-cyan" />
+                      <!-- Middle Amber Ring (RAM) -->
+                      <circle cx="50" cy="50" r="32" stroke="rgba(251, 191, 36, 0.2)" stroke-width="6" fill="none" />
+                      <circle cx="50" cy="50" r="32" stroke="#fbbf24" stroke-width="6" fill="none"
+                              stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="55"
+                              transform="rotate(-90 50 50)" class="ring-pulse-amber" />
+                      <!-- Inner Emerald Ring (Disk) -->
+                      <circle cx="50" cy="50" r="23" stroke="rgba(52, 211, 153, 0.2)" stroke-width="6" fill="none" />
+                      <circle cx="50" cy="50" r="23" stroke="#34d399" stroke-width="6" fill="none"
+                              stroke-linecap="round" stroke-dasharray="144.5" stroke-dashoffset="75"
+                              transform="rotate(-90 50 50)" class="ring-pulse-emerald" />
+                    </svg>
+                  </div>
+
+                  <!-- Moon / Glance Sphere -->
+                  <div class="hud-moon-glance">
+                    <div class="moon-body">
+                      <span class="moon-crater c1"></span>
+                      <span class="moon-crater c2"></span>
+                      <span class="moon-crater c3"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Readout Metrics -->
+                <div class="hud-metrics-readout">
+                  <span>CPU 9%</span>
+                  <span class="metric-divider">·</span>
+                  <span>RAM 77%</span>
+                  <span class="metric-divider">·</span>
+                  <span>Disk 45%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SAPPHIRE-STYLE DEDICATED FEATURE DEEP DIVE SHOWCASE SECTIONS
+         ========================================================================== -->
+
+    <!-- 1. FEATURE DEEP DIVE: CALL LIVE TRANSCRIPTION & VOICENOTES -->
+    <section id="feature-voicenotes-live" class="sapphire-feature-deepdive">
+      <div class="deepdive-container">
+        <div class="deepdive-grid">
+          <div class="deepdive-text-col">
+            <div class="deepdive-pill-wrap">
+              <span class="tier-pill-pro"><span class="material-symbols-outlined text-xs">workspace_premium</span> Pro &
+                Native macOS</span>
+            </div>
+            <h2 class="deepdive-title text-gradient-coral">Call Live Transcription.</h2>
+            <p class="deepdive-lead">
+              Have a natural conversation. Recall transcribes, summarizes & recalls every word live.
+            </p>
+            <p class="deepdive-desc">
+              Transcribe Zoom, Google Meet, Microsoft Teams, FaceTime, and system microphone in real-time with zero
+              meeting bots. 100% on-device AI directly on Apple Silicon Neural Engine with zero cloud egress.
+            </p>
+            <div class="deepdive-bullets-grid">
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🎙️</span> Zero Meeting Bots</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🔒</span> 100% Local Privacy</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">⚡</span> Real-Time Live Streaming</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🤖</span> Instant Action Items</div>
+            </div>
+          </div>
+
+          <div class="deepdive-media-col">
+            <div class="clean-video-frame">
+              <div class="clean-video-notch-bar"><span class="clean-video-cam"></span></div>
+              <img src="./assets/demo-voicenotes.gif" alt="Recall Call Live Transcription Demo"
+                class="clean-video-element" loading="lazy" decoding="async" />
+              <span class="clean-video-caption">Live AI Demo · 120 FPS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURE DEEP DIVE: SMART CLIPBOARD MANAGER & OCR -->
+    <section id="feature-clipboard-manager" class="sapphire-feature-deepdive">
+      <div class="deepdive-container">
+        <div class="deepdive-grid reverse-grid">
+          <div class="deepdive-media-col">
+            <div class="clean-video-frame">
+              <div class="clean-video-notch-bar"><span class="clean-video-cam"></span></div>
+              <img src="./assets/demo-clipboard.gif" alt="Recall Smart Clipboard Manager Demo"
+                class="clean-video-element" loading="lazy" decoding="async" />
+              <span class="clean-video-caption">Live Clipboard Demo · Instant OCR</span>
+            </div>
+          </div>
+
+          <div class="deepdive-text-col">
+            <div class="deepdive-pill-wrap">
+              <span class="tier-pill-cyan"><span class="material-symbols-outlined text-xs">content_paste</span>
+                Unlimited Clipboard</span>
+            </div>
+            <h2 class="deepdive-title text-gradient-cyan">Smart Clipboard Manager.</h2>
+            <p class="deepdive-lead">
+              Keep unlimited history of everything you copy across all of your Mac apps.
+            </p>
+            <p class="deepdive-desc">
+              Never lose a snippet again. Instant fuzzy search, custom snippet pins, automatic categorization for links,
+              code, and hex colors, plus instant OCR Live Text extraction directly from screenshots.
+            </p>
+            <div class="deepdive-bullets-grid">
+              <div class="deepdive-bullet-item"><span class="bullet-icon">📋</span> Unlimited History</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">📸</span> OCR Screenshot Text</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">💻</span> Code & Hex Formatter</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">⚡</span> Shortcut ⌘ + ⇧ + V</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURE DEEP DIVE: LIVE MUSIC & VIDEO ACTIVITIES -->
+    <section id="feature-music-activities" class="sapphire-feature-deepdive">
+      <div class="deepdive-container">
+        <div class="deepdive-grid">
+          <div class="deepdive-text-col">
+            <div class="deepdive-pill-wrap">
+              <span class="tier-pill-purple"><span class="material-symbols-outlined text-xs">graphic_eq</span> Dynamic
+                Island HUD</span>
+            </div>
+            <h2 class="deepdive-title text-gradient-purple">Live Activities & Lyrics.</h2>
+            <p class="deepdive-lead">
+              Soundtrack your focus with 120 FPS audio visualizers & synchronized lyrics.
+            </p>
+            <p class="deepdive-desc">
+              Control Spotify, Apple Music, YouTube, and browser playback with effortless glide gestures right in the
+              notch. Features rotating vinyl disc artwork, audio wave visualizers, and word-by-word synced karaoke
+              lyrics.
+            </p>
+            <div class="deepdive-bullets-grid">
+              <div class="deepdive-bullet-item"><span class="bullet-icon">💬</span> Synced Karaoke Lyrics</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🎵</span> Spotify & Apple Music</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🌊</span> 120 FPS Equalizer</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🎧</span> Lossless 24-bit Audio</div>
+            </div>
+          </div>
+
+          <div class="deepdive-media-col">
+            <div class="clean-video-frame">
+              <div class="clean-video-notch-bar"><span class="clean-video-cam"></span></div>
+              <img src="./assets/demo-music.gif" alt="Recall Live Music Activities Demo" class="clean-video-element" loading="lazy" decoding="async" />
+              <span class="clean-video-caption">Live Music HUD · Synced Lyrics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FEATURE DEEP DIVE: TEMP SHELF & UNIVERSAL DRAG ZONE -->
+    <section id="feature-temp-shelf" class="sapphire-feature-deepdive">
+      <div class="deepdive-container">
+        <div class="deepdive-grid reverse-grid">
+          <div class="deepdive-media-col">
+            <div class="clean-video-frame">
+              <div class="clean-video-notch-bar"><span class="clean-video-cam"></span></div>
+              <img src="./assets/demo-shelf.gif" alt="Recall Temp Shelf Demo" class="clean-video-element" loading="lazy" decoding="async" />
+              <span class="clean-video-caption">Live Temp Shelf · Drag & Drop</span>
+            </div>
+          </div>
+
+          <div class="deepdive-text-col">
+            <div class="deepdive-pill-wrap">
+              <span class="tier-pill-amber"><span class="material-symbols-outlined text-xs">archive</span> Instant Drop
+                Zone</span>
+            </div>
+            <h2 class="deepdive-title text-gradient-amber">Temp Shelf & Staging.</h2>
+            <p class="deepdive-lead">
+              A frictionless drag-and-drop staging shelf anchored right at your screen's notch.
+            </p>
+            <p class="deepdive-desc">
+              Hold files, folders, code snippets, and screenshots while switching between full-screen apps and spaces.
+              Drag them in from anywhere, and drop them seamlessly into Finder, Slack, or email in a single motion.
+            </p>
+            <div class="deepdive-bullets-grid">
+              <div class="deepdive-bullet-item"><span class="bullet-icon">📦</span> Notch Drop Target</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🗂️</span> Multi-File Bundles</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">🔄</span> Cross-App Staging</div>
+              <div class="deepdive-bullet-item"><span class="bullet-icon">⚡</span> Zero-Friction Flow</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURES GRID (6 CORE MAC SUPERPOWERS) -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="hero-badge mb-3">
+            <span class="hero-badge-rec-dot"></span>
+            <span>6 Core Superpowers · 100% Native macOS</span>
+          </div>
+          <h2 class="section-title">
+            Everything you reach for, <span class="serif-italic">in one notch</span>
+          </h2>
+          <p class="section-subtitle">
+            Recall combines live call transcription, smart clipboard history, music & video activities with synced
+            lyrics, temp shelf, live atmospheric weather, and desktop widgets into a single ultra-lightweight dynamic
+            island.
+          </p>
+        </div>
+
+        <div class="features-grid-6">
+          <!-- Feature 1: Call Live Transcription -->
+          <div class="feature-card-spotlight feature-card-coral-glow">
+            <div class="spotlight-badge">🎙️ Zero-Bot Audio Capture</div>
+            <div class="feature-icon-wrap">🎙️</div>
+            <h3 class="feature-name">Call Live Transcription & Voicenotes</h3>
+            <p class="feature-desc">Transcribe Zoom, Google Meet, Microsoft Teams, and system microphone in real-time
+              with zero meeting bots. Generate instant structured summaries, action items, and query your voice memory
+              with conversational AI — 100% on-device.</p>
+            <div class="spotlight-pills">
+              <span>Zoom & Meet</span>
+              <span>On-Device AI</span>
+              <span>Live Subtitles</span>
+              <span>Ask AI Search</span>
+            </div>
+          </div>
+
+          <!-- Feature 2: Smart Clipboard Manager -->
+          <div class="feature-card-spotlight feature-card-blue-glow">
+            <div class="spotlight-badge">📋 Unlimited History</div>
+            <div class="feature-icon-wrap">📋</div>
+            <h3 class="feature-name">Smart Clipboard Manager</h3>
+            <p class="feature-desc">Keep unlimited history of everything you copy. Instant fuzzy search, custom snippet
+              pins, automatic categorization for links, code, and hex colors, plus instant OCR Live Text extraction from
+              screenshots.</p>
+            <div class="spotlight-pills">
+              <span>Unlimited History</span>
+              <span>OCR Live Text</span>
+              <span>Fuzzy Search</span>
+              <span>Code Snippets</span>
+            </div>
+          </div>
+
+          <!-- Feature 3: Live Music & Video Activities -->
+          <div class="feature-card-spotlight feature-card-purple-glow">
+            <div class="spotlight-badge">🎵 Dynamic Island HUD</div>
+            <div class="feature-icon-wrap">🎵</div>
+            <h3 class="feature-name">Live Music & Video Activities</h3>
+            <p class="feature-desc">Rotating vinyl disc artwork, 120 FPS audio visualizers, and synchronized karaoke
+              lyrics right in the notch. Control Spotify, Apple Music, YouTube, and browser videos with effortless glide
+              gestures.</p>
+            <div class="spotlight-pills">
+              <span>Synced Lyrics</span>
+              <span>Spotify & Apple Music</span>
+              <span>YouTube Video HUD</span>
+              <span>120 FPS Equalizer</span>
+            </div>
+          </div>
+
+          <!-- Feature 4: Temp Shelf -->
+          <div class="feature-card-spotlight feature-card-amber-glow">
+            <div class="spotlight-badge">📦 Instant Drop Zone</div>
+            <div class="feature-icon-wrap">📦</div>
+            <h3 class="feature-name">Temp Shelf</h3>
+            <p class="feature-desc">A frictionless drag-and-drop staging shelf anchored at the top of your screen. Hold
+              files, folders, code snippets, and screenshots while switching apps, then drop them into Finder, Slack, or
+              email in one move.</p>
+            <div class="spotlight-pills">
+              <span>Drag & Drop Staging</span>
+              <span>Multi-File Bundles</span>
+              <span>Quick Preview</span>
+              <span>Cross-App Drops</span>
+            </div>
+          </div>
+
+          <!-- Feature 5: Real-Time Live Weather HUD -->
+          <div class="feature-card-spotlight feature-card-cyan-glow">
+            <div class="spotlight-badge">⛅ Atmospheric Live HUD</div>
+            <div class="feature-icon-wrap">⛅</div>
+            <h3 class="feature-name">Real-Time Live Weather</h3>
+            <p class="feature-desc">Glanceable atmospheric weather in the notch. Real-time temperature, condition
+              animations, hourly weather strip, precipitation alerts, UV index, wind velocity, humidity, and 7-day
+              forecasts without opening heavy browser tabs.</p>
+            <div class="spotlight-pills">
+              <span>Live Temperature</span>
+              <span>Hourly Forecast Strip</span>
+              <span>Precipitation Alerts</span>
+              <span>UV & Air Quality</span>
+            </div>
+          </div>
+
+          <!-- Feature 6: Desktop & Notch Widgets -->
+          <div class="feature-card-spotlight feature-card-emerald-glow">
+            <div class="spotlight-badge">🪟 Floating Canvas</div>
+            <div class="feature-icon-wrap">🪟</div>
+            <h3 class="feature-name">Desktop & Notch Widgets</h3>
+            <p class="feature-desc">Place glanceable mini-widgets directly onto your desktop canvas or anchor them to
+              screen corners. Floating media player, live weather pill, quick audio note trigger, and temp shelf targets
+              that stay out of your way.</p>
+            <div class="spotlight-pills">
+              <span>Floating Canvas</span>
+              <span>Glanceable HUD</span>
+              <span>Corner Snapping</span>
+              <span>Ultra-Low CPU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PRICING & APP COMPARISON MATRIX -->
+    <section id="pricing" class="pricing-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">
+            Everything included.<br />
+            <span class="serif-italic">One lifetime price.</span>
+          </h2>
+          <p class="section-subtitle">
+            Buying live transcription, clipboard, music HUD, shelf, weather, and desktop widgets separately costs over
+            $230+. Recall includes all 6 features in a single lifetime license.
+          </p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="pricing-table-card">
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th class="col-feature">FEATURE</th>
+                  <th class="col-comp">COMPARABLE APP</th>
+                  <th class="col-price text-right">THEIR PRICE</th>
+                  <th class="col-ns text-right">RECALL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row-coral">
+                  <td class="feature-cell font-bold">🎙️ Call Live Transcription & Voicenotes</td>
+                  <td class="text-muted">Voicenotes / Otter</td>
+                  <td class="text-right text-muted tabular">$120.00/yr</td>
+                  <td class="text-right font-bold text-coral">Included</td>
+                </tr>
+                <tr>
+                  <td class="feature-cell font-bold">📋 Smart Clipboard Manager & OCR</td>
+                  <td class="text-muted">Paste</td>
+                  <td class="text-right text-muted tabular">$29.99/yr</td>
+                  <td class="text-right font-bold text-accent">Included</td>
+                </tr>
+                <tr>
+                  <td class="feature-cell font-bold">🎵 Live Music & Video Activities + Lyrics</td>
+                  <td class="text-muted">DynamicLake / Sleeve</td>
+                  <td class="text-right text-muted tabular">$19.99</td>
+                  <td class="text-right font-bold text-accent">Included</td>
+                </tr>
+                <tr>
+                  <td class="feature-cell font-bold">📦 Temp Shelf & Drag Staging</td>
+                  <td class="text-muted">Yoink</td>
+                  <td class="text-right text-muted tabular">$9.99</td>
+                  <td class="text-right font-bold text-accent">Included</td>
+                </tr>
+                <tr>
+                  <td class="feature-cell font-bold">⛅ Real-Time Live Weather HUD</td>
+                  <td class="text-muted">Carrot Weather</td>
+                  <td class="text-right text-muted tabular">$14.99/yr</td>
+                  <td class="text-right font-bold text-accent">Included</td>
+                </tr>
+                <tr>
+                  <td class="feature-cell font-bold">🪟 Desktop & Notch Glanceable Widgets</td>
+                  <td class="text-muted">WidgetWall</td>
+                  <td class="text-right text-muted tabular">$39.99</td>
+                  <td class="text-right font-bold text-accent">Included</td>
+                </tr>
+
+                <!-- Summary Row -->
+                <tr class="total-row">
+                  <td colspan="2" class="total-label">Buying separately</td>
+                  <td class="text-right strike-total tabular">~$234.95+</td>
+                  <td class="text-right text-muted">—</td>
+                </tr>
+
+                <!-- Recall Final Row -->
+                <tr class="recall-deal-row">
+                  <td colspan="2">
+                    <div class="deal-title">Recall Lifetime</div>
+                    <div class="deal-sub">One-time purchase · Up to 2 Macs · All 6 core tools + Free updates forever
+                    </div>
+                  </td>
+                  <td class="text-right text-muted">—</td>
+                  <td class="text-right">
+                    <div class="price-stack">
+                      <span class="old-price-tag tabular">$19.99</span>
+                      <span class="final-price-tag tabular">$16</span>
+                    </div>
+                    <span class="discount-pill">20% OFF</span>
+                    <span class="currency-note">USD one-time</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-disclaimer">
+            Competitor prices are public list prices. Voicenotes/Otter, Carrot, and Paste shown at standard annual
+            subscriptions.
+          </p>
+        </div>
+
+        <!-- Checkout Action Box -->
+        <div class="pricing-cta-card">
+          <button class="btn-checkout-primary open-download-modal-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="apple-icon">
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+            <span>Lifetime Purchase <del class="opacity-50">$19.99</del> <strong>$16</strong> · 20% off</span>
+          </button>
+          <p class="checkout-guarantee">Pay once, own it forever. Includes all 6 core features, macOS Sequoia
+            compatibility, and future upgrades.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FREQUENTLY ASKED QUESTIONS -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about privacy, compatibility, multi-display setups,
+            and licensing.</p>
+        </div>
+
+        <div class="faq-accordion-box">
+
+          <div class="faq-item active">
+            <button class="faq-question-btn" aria-expanded="true">
+              <span>How does real-time voice note and call transcription work? Does it require an AI bot?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane" style="max-height: 250px;">
+              <p>Zero bots required! Unlike traditional transcription services that send a creepy bot into your Zoom,
+                Google Meet, or Microsoft Teams calls, Recall captures audio directly at the macOS CoreAudio level. It
+                transcribes system audio and your microphone in real-time, splits speakers, generates structured action
+                items, and lets you ask AI questions about your voice notes with 100% on-device privacy.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Is Recall secure and private?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Yes. Recall is fully notarized and approved by Apple. All voice transcription, clipboard history,
+                weather data, and staged files are processed 100% locally on your Mac. No audio or personal data ever
+                leaves your device.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Does Recall drain my MacBook battery?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane">
+              <p>No. Recall is written in native Swift with extreme optimization for macOS. It idles at under 0.1% CPU
+                and has near-zero impact on battery longevity.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Is this really a one-time purchase?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Yes! You pay once ($16 on sale) and own all 6 core features forever. This includes all future updates
+                and compatibility updates for future macOS versions. No recurring subscriptions.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>What if my Mac doesn't have a physical notch?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Recall works flawlessly on Macs without a physical notch (like iMac, Mac mini, Mac Studio, Mac Pro, and
+                older MacBooks). It renders as a sleek floating Dynamic Island HUD at the top of your screen.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Does it work on multiple monitors and external displays?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Yes! You can configure Recall to appear on Auto (active cursor display), every connected external
+                screen, or any custom combination of monitors.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Does it support Intel Macs as well as Apple Silicon?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer-pane">
+              <p>Yes. Recall is shipped as a Universal Binary supporting both Intel x86_64 and Apple Silicon
+                (M1/M2/M3/M4) Macs running macOS Sonoma 14.0 or newer.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         COMMUNITY FEEDBACK, ISSUE REPORT & FEATURE REQUESTS (GOOGLE APPS SCRIPT)
+         ========================================================================== -->
+    <section id="feedback-support" class="feedback-support-section">
+      <div class="container feedback-container">
+        <!-- Section Header -->
+        <div class="feedback-header text-center">
+          <div class="feedback-badge-pill">
+            <span class="badge-dot-live"></span> Community Roadmap & Support
+          </div>
+          <h2 class="feedback-title">
+            Have a feature idea or <span class="serif-italic">spotted an issue?</span>
+          </h2>
+          <p class="feedback-subtitle">
+            We build Recall in public and ship weekly. Submit feature requests, bug reports, or performance feedback directly to our engineering backlog.
+          </p>
+        </div>
+
+        <!-- Feedback Form Card (White Theme) -->
+        <div class="feedback-form-card">
+          <!-- Type Tabs / Selector -->
+          <div class="feedback-type-tabs" role="tablist">
+            <button type="button" class="type-tab-btn active" data-type="Feature Request">
+              <span class="tab-icon">💡</span>
+              <span>Feature Request</span>
+            </button>
+            <button type="button" class="type-tab-btn" data-type="Bug / Issue">
+              <span class="tab-icon">🪲</span>
+              <span>Bug / Issue</span>
+            </button>
+            <button type="button" class="type-tab-btn" data-type="Notch / UI Tweak">
+              <span class="tab-icon">⚡</span>
+              <span>Notch / UI Tweak</span>
+            </button>
+            <button type="button" class="type-tab-btn" data-type="General Feedback">
+              <span class="tab-icon">💬</span>
+              <span>General Feedback</span>
+            </button>
+          </div>
+
+          <form id="recall-feedback-form" class="recall-feedback-form" novalidate>
+            <!-- Hidden input for feedback type -->
+            <input type="hidden" id="feedback-type" name="type" value="Feature Request" />
+
+            <!-- Row 1: Name & Email -->
+            <div class="form-grid-row">
+              <div class="form-field-group">
+                <label for="feedback-name" class="form-field-label">Your Name <span class="label-optional">(Optional)</span></label>
+                <div class="input-with-icon">
+                  <span class="input-prefix-icon">👤</span>
+                  <input type="text" id="feedback-name" name="name" class="form-text-input" placeholder="e.g. Alex Rivera" />
+                </div>
+              </div>
+
+              <div class="form-field-group">
+                <label for="feedback-email" class="form-field-label">Email Address <span class="label-required">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-prefix-icon">✉️</span>
+                  <input type="email" id="feedback-email" name="email" class="form-text-input" required placeholder="alex@company.com" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Mac Architecture & macOS Version -->
+            <div class="form-grid-row">
+              <div class="form-field-group">
+                <label for="feedback-chip" class="form-field-label">Mac Architecture</label>
+                <div class="select-wrapper">
+                  <select id="feedback-chip" name="macArchitecture" class="form-select-input">
+                    <option value="Apple Silicon M1/M2/M3/M4" selected>Apple Silicon (M1 / M2 / M3 / M4)</option>
+                    <option value="Intel Mac (64-bit)">Intel Processor</option>
+                    <option value="Not sure / Other">Not sure / External Display</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field-group">
+                <label for="feedback-os" class="form-field-label">macOS Version</label>
+                <div class="select-wrapper">
+                  <select id="feedback-os" name="macosVersion" class="form-select-input">
+                    <option value="macOS 15 Sequoia" selected>macOS 15 Sequoia</option>
+                    <option value="macOS 14 Sonoma">macOS 14 Sonoma</option>
+                    <option value="macOS 13 Ventura or older">macOS 13 Ventura or older</option>
+                    <option value="macOS Developer / Public Beta">macOS Developer / Public Beta</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Title / Summary -->
+            <div class="form-field-group">
+              <label for="feedback-summary" class="form-field-label">Title / Summary <span class="label-required">*</span></label>
+              <input type="text" id="feedback-summary" name="summary" class="form-text-input" required placeholder="e.g. Add export to Notion or Obsidian for meeting transcripts" />
+            </div>
+
+            <!-- Description / Reproduction Details -->
+            <div class="form-field-group">
+              <label for="feedback-details" class="form-field-label">Details / What happened? <span class="label-required">*</span></label>
+              <textarea id="feedback-details" name="details" rows="4" class="form-textarea-input" required placeholder="Describe the feature you'd like to see, or the steps to reproduce the issue..."></textarea>
+            </div>
+
+            <!-- Actions Row & Status Feedback -->
+            <div class="form-footer-action-row">
+              <button type="submit" id="btn-submit-feedback" class="btn-submit-feedback">
+                <span class="btn-spinner hidden" id="feedback-spinner"></span>
+                <span class="btn-text" id="feedback-btn-text">Submit Feedback</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow-icon">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Live Status Messages -->
+            <div id="feedback-status-banner" class="feedback-status-banner hidden"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <!-- Giant Background Watermark -->
+    <div class="footer-giant-watermark" aria-hidden="true">RECALL</div>
+
+    <div class="container footer-content-container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="./assets/logo.png" alt="Recall Logo" class="footer-app-icon" />
+          <span class="footer-brand-title">Recall</span>
+        </div>
+
+        <div class="footer-social-links">
+          <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">Discord Community</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          <a href="mailto:hello@recall.app">Contact Team</a>
+        </div>
+
+        <div class="footer-legal-links">
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#feedback-support">Feedback & Issues</a>
+          <a href="#"
+            onclick="alert('Recall guarantees a 14-day no-questions-asked refund policy.'); return false;">Refund
+            Policy</a>
+          <a href="#" onclick="alert('Recall is built with 100% on-device local privacy.'); return false;">Privacy
+            Policy</a>
+        </div>
+
+        <p class="footer-copyright">
+          © 2026 Recall. Designed for macOS. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOWNLOAD MODAL -->
+  <div class="modal-overlay" id="download-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+
+      <div class="modal-header">
+        <img src="./assets/logo.png" alt="Recall Logo" class="modal-app-icon mb-2" />
+        <h3>Download Recall for Mac</h3>
+        <p>Choose your Mac architecture or activate your lifetime license</p>
+      </div>
+
+      <div class="modal-download-options">
+        <button class="download-arch-btn" onclick="startDownloadSim('Apple Silicon (M1/M2/M3/M4)')">
+          <div class="arch-meta">
+            <strong>Apple Silicon</strong>
+            <small>M1, M2, M3, M4 Macs (Recommended)</small>
+          </div>
+          <span class="btn-pill-action">Download .dmg</span>
+        </button>
+
+        <button class="download-arch-btn" onclick="startDownloadSim('Intel Processor')">
+          <div class="arch-meta">
+            <strong>Intel Macs</strong>
+            <small>Universal 64-bit Architecture</small>
+          </div>
+          <span class="btn-pill-action">Download .dmg</span>
+        </button>
+      </div>
+
+      <!-- License Activation Input -->
+      <div class="license-activate-box">
+        <h4>Already have a license key?</h4>
+        <div class="license-input-row">
+          <input type="text" id="license-key-input" placeholder="RC-XXXX-XXXX-XXXX" />
+          <button class="btn-verify-license" id="btn-verify-license">Activate</button>
+        </div>
+        <div id="license-msg" class="license-status-msg"></div>
+      </div>
+
+      <!-- Download status simulation progress bar -->
+      <div class="download-progress-container hidden" id="download-progress-box">
+        <div class="download-status-line">
+          <span id="download-arch-label">Downloading Recall.dmg...</span>
+          <span id="download-percent-label">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar-fill" id="download-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLLAB & SUGGESTION MODAL -->
+  <div class="modal-overlay" id="generic-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="generic-modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h3 id="generic-modal-title">Creator Collab Application</h3>
+        <p id="generic-modal-desc">Share your channel link and we'll send you an instant lifetime license key.</p>
+      </div>
+      <form id="generic-modal-form" onsubmit="handleGenericSubmit(event)">
+        <div class="form-group">
+          <label for="form-name">Your Name</label>
+          <input type="text" id="form-name" required placeholder="Alex Creator" />
+        </div>
+        <div class="form-group">
+          <label for="form-email">Your Email</label>
+          <input type="email" id="form-email" required placeholder="alex@creators.com" />
+        </div>
+        <div class="form-group">
+          <label for="form-link" id="form-link-label">Channel / Profile Link</label>
+          <input type="text" id="form-link" required
+            placeholder="https://tiktok.com/@yourname or youtube.com/@yourname" />
+        </div>
+        <div class="form-group">
+          <label for="form-notes">Message / Notes</label>
+          <textarea id="form-notes" rows="3" placeholder="Tell us how you plan to showcase Recall..."></textarea>
+        </div>
+        <button type="submit" class="btn-form-submit" id="generic-submit-btn">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CINEMA DEMO LIGHTBOX MODAL -->
+  <div class="modal-overlay" id="demo-lightbox-modal">
+    <div class="modal-card modal-card-cinema">
+      <button class="modal-close-btn" id="cinema-lightbox-close" aria-label="Close modal">&times;</button>
+      <div class="modal-cinema-body">
+        <div class="modal-cinema-notch-bar">
+          <span class="notch-hardware-cam"></span>
+        </div>
+        <img id="lightbox-demo-img" src="./assets/demo-voicenotes.gif" alt="Recall Demo Preview"
+          class="lightbox-media-img" loading="lazy" decoding="async" />
+        <div class="lightbox-footer">
+          <div class="lightbox-info">
+            <h4 id="lightbox-title">🎙️ Call Live Transcription & Voicenotes</h4>
+            <p id="lightbox-desc">100% On-Device Neural Engine AI · Zero Meeting Bots</p>
+          </div>
+          <div class="lightbox-actions">
+            <button class="btn-primary-cta open-download-modal-btn">
+              <span>Download Recall for Mac ($16)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="app.js"></script>
+</body>
+
+</html>

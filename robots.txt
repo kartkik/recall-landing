@@ -1,0 +1,6 @@
+# robots.txt for Recall (https://recall.app)
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://recall.app/sitemap.xml
