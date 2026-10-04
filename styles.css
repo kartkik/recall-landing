@@ -8639,7 +8639,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-radius: 12px;
   border: 1px solid transparent;
   background: transparent;
@@ -8650,7 +8650,7 @@ textarea {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   min-width: 0;
-  min-height: 42px;
+  min-height: 44px;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
@@ -8664,7 +8664,7 @@ textarea {
 .type-tab-btn.active {
   background: #ffffff;
   color: #0f172a;
-  border-color: rgba(226, 232, 240, 0.8);
+  border-color: rgba(226, 232, 240, 0.9);
   box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
   font-weight: 700;
 }
@@ -8674,10 +8674,13 @@ textarea {
 }
 
 .type-tab-btn .tab-icon {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 }
 
 .type-tab-btn .tab-label,
@@ -8897,16 +8900,9 @@ textarea {
 /* ==========================================================================
    FEEDBACK RESPONSIVE MEDIA QUERIES
    ========================================================================== */
-@media (max-width: 900px) {
-  .feedback-type-tabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-}
-
 @media (max-width: 768px) {
   .feedback-support-section {
-    padding: 3.5rem 1.25rem 4.5rem;
+    padding: 3.5rem 1rem 4.5rem;
   }
 
   .feedback-title {
@@ -8918,38 +8914,61 @@ textarea {
 
   .feedback-subtitle {
     font-size: 0.95rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     padding: 0 0.5rem;
   }
 
   .feedback-form-card {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.15rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
   }
 
+  /* Unified full-width vertical alignment for tabs on all mobile screens */
   .feedback-type-tabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 6px;
     border-radius: 14px;
     margin-bottom: 1.5rem;
+    background: #f8fafc;
   }
 
   .type-tab-btn {
-    padding: 10px 8px;
-    font-size: 0.82rem;
-    white-space: normal;
-    text-align: center;
-    min-height: 44px;
-    line-height: 1.25;
-    gap: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #64748b;
+    text-align: left;
+    min-height: 48px;
+    gap: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  .type-tab-btn .tab-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .type-tab-btn .tab-label,
   .type-tab-btn span:not(.tab-icon) {
-    white-space: normal;
-    text-overflow: clip;
+    flex: 1;
+    font-size: 0.92rem;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .form-grid-row {
@@ -9007,32 +9026,23 @@ textarea {
 
 @media (max-width: 480px) {
   .feedback-support-section {
-    padding: 3rem 1rem 4rem;
+    padding: 3rem 0.75rem 3.75rem;
   }
 
   .feedback-form-card {
-    padding: 1.35rem 1rem;
+    padding: 1.25rem 0.9rem;
     border-radius: 18px;
   }
 
-  .feedback-type-tabs {
-    grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 5px;
-    border-radius: 12px;
-  }
-
   .type-tab-btn {
-    justify-content: flex-start;
-    padding: 10px 14px;
-    font-size: 0.86rem;
-    text-align: left;
-    min-height: 44px;
-    border-radius: 9px;
+    padding: 11px 14px;
+    font-size: 0.9rem;
+    gap: 10px;
   }
 
   .type-tab-btn .tab-icon {
-    font-size: 1.05rem;
-    margin-right: 4px;
+    font-size: 1.1rem;
+    width: 22px;
+    height: 22px;
   }
 }
