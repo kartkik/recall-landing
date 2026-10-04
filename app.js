@@ -1680,8 +1680,12 @@ function initFeedbackForm() {
   // 1. Handle Feedback Type Tabs
   typeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      typeButtons.forEach(b => b.classList.remove('active'));
+      typeButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
       const selectedType = btn.getAttribute('data-type') || 'Feature Request';
       if (typeInput) typeInput.value = selectedType;
     });

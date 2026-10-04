@@ -960,22 +960,22 @@
         <!-- Feedback Form Card (White Theme) -->
         <div class="feedback-form-card">
           <!-- Type Tabs / Selector -->
-          <div class="feedback-type-tabs" role="tablist">
-            <button type="button" class="type-tab-btn active" data-type="Feature Request">
+          <div class="feedback-type-tabs" role="tablist" aria-label="Feedback Category">
+            <button type="button" class="type-tab-btn active" data-type="Feature Request" role="tab" aria-selected="true">
               <span class="tab-icon">💡</span>
-              <span>Feature Request</span>
+              <span class="tab-label">Feature Request</span>
             </button>
-            <button type="button" class="type-tab-btn" data-type="Bug / Issue">
+            <button type="button" class="type-tab-btn" data-type="Bug / Issue" role="tab" aria-selected="false">
               <span class="tab-icon">🪲</span>
-              <span>Bug / Issue</span>
+              <span class="tab-label">Bug / Issue</span>
             </button>
-            <button type="button" class="type-tab-btn" data-type="Notch / UI Tweak">
+            <button type="button" class="type-tab-btn" data-type="Notch / UI Tweak" role="tab" aria-selected="false">
               <span class="tab-icon">⚡</span>
-              <span>Notch / UI Tweak</span>
+              <span class="tab-label">Notch / UI Tweak</span>
             </button>
-            <button type="button" class="type-tab-btn" data-type="General Feedback">
+            <button type="button" class="type-tab-btn" data-type="General Feedback" role="tab" aria-selected="false">
               <span class="tab-icon">💬</span>
-              <span>General Feedback</span>
+              <span class="tab-label">General Feedback</span>
             </button>
           </div>
 
@@ -1008,9 +1008,12 @@
                 <label for="feedback-chip" class="form-field-label">Mac Architecture</label>
                 <div class="select-wrapper">
                   <select id="feedback-chip" name="macArchitecture" class="form-select-input">
-                    <option value="Apple Silicon M1/M2/M3/M4" selected>Apple Silicon (M1 / M2 / M3 / M4)</option>
-                    <option value="Intel Mac (64-bit)">Intel Processor</option>
-                    <option value="Not sure / Other">Not sure / External Display</option>
+                    <option value="Apple Silicon M4 / M4 Pro / M4 Max">Apple Silicon (M4 / M4 Pro / M4 Max)</option>
+                    <option value="Apple Silicon M3 / M3 Pro / M3 Max">Apple Silicon (M3 / M3 Pro / M3 Max)</option>
+                    <option value="Apple Silicon M2 / M2 Pro / M2 Max / M2 Ultra">Apple Silicon (M2 / M2 Pro / M2 Max / M2 Ultra)</option>
+                    <option value="Apple Silicon M1 / M1 Pro / M1 Max / M1 Ultra" selected>Apple Silicon (M1 / M1 Pro / M1 Max / M1 Ultra)</option>
+                    <option value="Intel Core i5 / i7 / i9 / Xeon">Intel Processor (64-bit Core i5/i7/i9/Xeon)</option>
+                    <option value="External Display / Sidecar / Other">External Display / Sidecar / Other</option>
                   </select>
                 </div>
               </div>
@@ -1019,9 +1022,20 @@
                 <label for="feedback-os" class="form-field-label">macOS Version</label>
                 <div class="select-wrapper">
                   <select id="feedback-os" name="macosVersion" class="form-select-input">
-                    <option value="macOS 15 Sequoia" selected>macOS 15 Sequoia</option>
+                    <option value="macOS 27 (Latest)" selected>macOS 27 (Latest)</option>
+                    <option value="macOS 26">macOS 26</option>
+                    <option value="macOS 15 Sequoia">macOS 15 Sequoia</option>
                     <option value="macOS 14 Sonoma">macOS 14 Sonoma</option>
-                    <option value="macOS 13 Ventura or older">macOS 13 Ventura or older</option>
+                    <option value="macOS 13 Ventura">macOS 13 Ventura</option>
+                    <option value="macOS 12 Monterey">macOS 12 Monterey</option>
+                    <option value="macOS 11 Big Sur">macOS 11 Big Sur</option>
+                    <option value="macOS 10.15 Catalina">macOS 10.15 Catalina</option>
+                    <option value="macOS 10.14 Mojave">macOS 10.14 Mojave</option>
+                    <option value="macOS 10.13 High Sierra">macOS 10.13 High Sierra</option>
+                    <option value="macOS 10.12 Sierra">macOS 10.12 Sierra</option>
+                    <option value="OS X 10.11 El Capitan">OS X 10.11 El Capitan</option>
+                    <option value="OS X 10.10 Yosemite">OS X 10.10 Yosemite</option>
+                    <option value="OS X 10.9 Mavericks or older">OS X 10.9 Mavericks or older</option>
                     <option value="macOS Developer / Public Beta">macOS Developer / Public Beta</option>
                   </select>
                 </div>
