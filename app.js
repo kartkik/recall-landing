@@ -852,8 +852,10 @@ function initFAQ() {
 }
 
 /* ==========================================================================
-   8. MODALS & DOWNLOAD SIMULATOR
+   8. MODALS & DOWNLOAD / CHECKOUT HANDLER
    ========================================================================== */
+const CHECKOUT_URL = 'https://checkout.dodopayments.com/buy/pdt_0Nox1p0HZWf072MENhhcx?quantity=1&redirect_url=https://github.com%2Fkartkik%2Frecall-macos%2Freleases%2Fdownload%2Fv1.0.3%2FRecall.dmg';
+
 function initModals() {
   const downloadModal = document.getElementById('download-modal');
   const genericModal = document.getElementById('generic-modal');
@@ -882,7 +884,17 @@ function initModals() {
     }
   }
 
-  openDownloadBtns.forEach((btn) => btn.addEventListener('click', () => openModal(downloadModal)));
+  openDownloadBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      // If it's a direct checkout link, allow normal navigation
+      if (btn.tagName === 'A' && btn.getAttribute('href') && btn.getAttribute('href') !== '#') {
+        return;
+      }
+      e.preventDefault();
+      window.location.href = CHECKOUT_URL;
+    });
+  });
+
   if (closeDownloadBtn) closeDownloadBtn.addEventListener('click', () => closeModal(downloadModal));
   if (closeGenericBtn) closeGenericBtn.addEventListener('click', () => closeModal(genericModal));
   if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', () => closeModal(lightboxModal));
@@ -938,38 +950,9 @@ function initModals() {
   }
 }
 
-// Download Progress Simulator
+// Download Simulator / Direct checkout redirect
 window.startDownloadSim = function (arch) {
-  const progressBox = document.getElementById('download-progress-box');
-  const archLabel = document.getElementById('download-arch-label');
-  const percentLabel = document.getElementById('download-percent-label');
-  const progressBar = document.getElementById('download-progress-bar');
-
-  if (!progressBox) return;
-
-  progressBox.classList.remove('hidden');
-  archLabel.textContent = `Downloading Recall-1.1.9-${arch.includes('Apple') ? 'arm64' : 'x64'}.dmg...`;
-  percentLabel.textContent = '0%';
-  progressBar.style.width = '0%';
-  playUiSound('click');
-
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 20) + 10;
-    if (progress >= 100) {
-      progress = 100;
-      clearInterval(interval);
-      percentLabel.textContent = 'Completed! ✓';
-      progressBar.style.width = '100%';
-      playUiSound('success');
-      setTimeout(() => {
-        alert(`🎉 Recall for ${arch} downloaded! Drag Recall into your Applications folder to launch.`);
-      }, 400);
-    } else {
-      percentLabel.textContent = `${progress}%`;
-      progressBar.style.width = `${progress}%`;
-    }
-  }, 180);
+  window.location.href = CHECKOUT_URL;
 };
 
 window.handleGenericSubmit = function (e) {
